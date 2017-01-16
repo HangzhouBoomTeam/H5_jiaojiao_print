@@ -7,8 +7,8 @@
             <p>8涨照片在排队，预计需要5分钟</p>
         </div>
         <div class="content">
-            <i class="left-img"></i>
-            <i class="right-img"></i>
+           <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
+           <img class="left-img" src="./assets/left.png" alt="" width="40px" height="40px">
             <div class="white-content">
               <p class="date"><span >2017年2月</span></p>
               <p class="later">过儿<span class="will">将会在</span></p>
