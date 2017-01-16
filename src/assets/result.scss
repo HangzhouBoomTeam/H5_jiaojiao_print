@@ -1,0 +1,176 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header {
+        text-align: center;
+        margin-top: 20px;
+        color: #2e2e2e;
+        font-size: 20px;
+        
+        span {
+            display: inline-block;
+            line-height: 30px;
+        }
+        
+
+        p {
+            margin:3px 0;
+            font-size: 14px;
+        }
+        i {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+            background-color: #CEB075;
+            border-radius: 26px;
+            // margin-top: -2px;
+            margin-bottom: 8px;
+        }
+    }
+
+    .content {
+        margin: 0 auto;
+        width: 90%;
+        height: 60%;
+        background-color: #F7FC18;
+        border: solid 3px #000;
+        padding: 15px 10px 0 10px;
+        .white-content {
+            width: 100%;
+            height: 75%;
+            border: solid 3px #000;
+            background-color: #fff;
+
+            .date {
+                margin: 5% 0 6% 6%;
+                /*width: 78px;*/
+                
+                }
+            .date span {
+                padding: 5px 15px;
+                border: solid 1px #000;
+                border-radius: 16px;
+                font-size: 12px;
+                background-color: #F7FC18;
+                font-weight: bold;
+            }
+            .later {
+                margin: 10% 0 2% 5%;
+                font-weight: bold;
+                font-size: 32px;
+            }
+            .later span {
+                margin-left: 3px;
+                font-size: 14px;
+            }
+            .one {
+                margin: -5% 0 0.3rem 5%;
+                color: #4471E6;
+                font-size: 32px;
+            }
+
+            .address-img {
+                width: 20px;
+                height: 27px;
+                background-image: url(./assets/address.png);
+                background-size: 100% 100%;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            .address {
+                margin: 0% 0 2% 5%;
+                color: #4471E6;
+                font-weight: bold;
+                color: #000;
+                font-size: 1.6rem;
+            }
+            .wedding {
+                margin: 0% 0 2% 5%;
+                color: #4471E6;
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+        }
+
+        .look-more {
+            margin: 0 auto;
+            text-align: center;
+            width: 230px;
+            position: relative;
+            bottom: 23px;
+            span {
+                color: #fff;
+                background-color: #4471E6;
+                border: solid 2px #000;
+                padding: 10px 14px ;
+                border-radius: 25px;
+                font-weight: bold;
+                display: block;
+            }
+        }
+
+        .btns {
+            float: left;
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            font-weight: bold;
+
+            i {
+                background-size: 100% 100%;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                margin-bottom: 3px;
+            }
+            .again-img {
+                 width: 15px;
+                 height: 15px;
+                 background-image: url(./assets/refresh.png);
+            }
+            .down-img {
+
+            }
+        }
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px 0 0 0 ;
+        border: dashed 1px #DBDBDB;
+        .go-on {
+            margin-bottom: 20px;
+             span {
+            width: 50%;
+            padding: 15px 0;
+            display: inline-block;
+            background-color: #E25447;
+            color: #fff;
+            line-height: 100%;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        }
+       
+        .footer-tip {
+            margin-bottom: 20px;
+             p{
+                margin:0 0 ;
+                color: #A8A5A5;
+                font-size: 14px;
+            }
+            span {
+                color: #B8DDF8;
+                text-decoration: underline;
+            }
+        }
+       
+
+    }
+}
+
