@@ -1,40 +1,5 @@
 <template>
-  <div id="app">
-     <div class=" back-quare background" height="100%">
-        <div class="five-mao">
-          <i class="line-img"> <i class="cicle"></i></i>
-         
-        </div>
 
-        <div class="red-back card">
-        </div>
-        <div class="yellow-back back-quare card">
-          <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
-          <img class="left-img" src="./assets/left.png" alt="" width="40px" height="40px">
-            <div class="guess">
-                      <!--<img src="./assets/2017.png"  >-->
-                <i class="guess-img">
-
-                </i>
-            </div>
-            <div class="meet">
-              <i class="meet-img"></i>
-            </div>
-            <div class="name-input" >
-                <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name">
-            </div>
-            
-            <p class="tip">tips:</p>
-            <p class="tip-detail">你好，我是好好先生</p>
-            <div class="start-btn">
-                <i class="start-btn-img" @click="startGuess"><span class="start-span">开始预测</span></i>
-            </div>
-            <i class="run-img"></i>
-        </div>
-        
-    </div>
-
-  </div>
 </template>
 
 <script>

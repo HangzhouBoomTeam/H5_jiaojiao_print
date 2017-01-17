@@ -10,7 +10,7 @@ const router = new VueRouter({
         component: MyResult
     }, {
         name: 'my',
-        path: '/my/:name',
+        path: '/my',
         component: MyResult
     }]
 })
