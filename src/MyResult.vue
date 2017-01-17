@@ -15,6 +15,8 @@
                 <p class="later">{{name}}<span class="will">将会在</span></p>
                 <p class="one">一</p>
                 <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
+                                <!--<p class="address icon" ><span class="demoSpan1 span-img"></span><i>印度尼西亚巴厘岛</i></p>-->
+
                 <p class="wedding">举行盛大的婚礼</p>
                 </div>
 
