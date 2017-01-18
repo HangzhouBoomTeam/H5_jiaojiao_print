@@ -4,23 +4,30 @@
             <div>
               <i></i><span>照片上传成功</span>
             </div>
-            <p>8涨照片在排队，预计需要5分钟</p>
+            <p>8张照片在排队，预计需要5分钟</p>
         </div>
         <div class="content">
            <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
            <img class="left-img" src="./assets/left.png" alt="" width="40px" height="40px">
-           <div class="result-warp" v-if="isShowResult">
-               <div class="white-content">
-                <p class="date"><span >2017年2月</span></p>
+           <div class="result-warp" v-if="isShowResult" style="position: relative;   ">
+           <div style="height:100%">
+                <img src="" id="show_img" style="position: absolute;width: 100%;left:0;top:0;height:100%;">
+
+             <div class="white-content" id="wwww" style="position: relative; pointer-events: none;">
+
+                <p class="date"><span >{{today}}</span></p>
                 <p class="later">{{name}}<span class="will">将会在</span></p>
                 <p class="one">一</p>
-                <p class="address"><i class="address-img"></i>印度尼西亚巴厘岛</p>
-                                <!--<p class="address icon" ><span class="demoSpan1 span-img"></span><i>印度尼西亚巴厘岛</i></p>-->
-
-                <p class="wedding">举行盛大的婚礼</p>
+                <p class="address"><i class="address-img"></i>{{poss}}</p>
+                <p class="wedding">{{quote}}</p>
+                <img src="./assets/qr.png" class="qr_bottom">
                 </div>
+                <div class="qr_bottom" style=" background: white;width: 100%;height: 60px;pointer-events: none;border: 3px solid;border-top: none;"></div>
 
-                <div class="look-more"><span>查看 “巴厘岛” 更多的奇遇</span></div>
+           </div>
+               
+
+                <div class="look-more"><span>查看更多的奇遇</span></div>
 
                 <div class="btns" @click="playAgain">
                     <i class="again-img"></i>再玩一次
@@ -50,16 +57,14 @@
     </div>
 </template>
 <script>
-export default {
-    data () {
-      return {
-        name:'',
-        isShowResult:false
-      }
-    },
-     mounted(){
-          this.getData();
-          console.log(window.innerWidth);
+import wenan from "./wenan";
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function getPic(){
+   console.log(window.innerWidth);
           var w = window.innerWidth*0.8;
           var h = window.innerHeight*0.5;
           console.log(w,h);
@@ -72,14 +77,26 @@ export default {
           var context = canvas.getContext('2d');
           context.scale(4,4);
           context.translate(0,-h*0.1)
-          html2canvas(document.getElementById('template'),{canvas:canvas}).then(function(canvas){
+          console.log(document.getElementById('wwww'));
+          html2canvas(document.getElementById('wwww'),{canvas:canvas}).then(function(canvas){
             console.log(canvas);
                var dataUrl = canvas.toDataURL();
-               self.src = dataUrl
-               // document.getElementById('template').remove()
+               // // document.getElementById('template').remove()
                document.getElementById('show_img').src = dataUrl
           })
-     
+}
+export default {
+    data () {
+      return {
+        name:'',
+        isShowResult:false,poss:'',quote:'',today:''
+      }
+    },
+     mounted(){
+          this.getData();
+           var now =new Date()
+            var time = now.getFullYear() +'年'+ now.getDay()+'日'
+            this.today=time
      },
      methods: {
        getData (){
@@ -100,6 +117,13 @@ export default {
        },
        startGuess(){
          this.isShowResult = true;
+         var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
+      this.poss = w.name
+      this.quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
+     
+         setTimeout(()=>{
+          getPic()
+         },1000)
        }
      }
 };
@@ -107,6 +131,12 @@ export default {
 </script>
 
 <style lang="scss">
+.qr_bottom{
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px
+}
 #myResult {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

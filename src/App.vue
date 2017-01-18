@@ -41,7 +41,7 @@ export default {
 body{
   height: 100%;
   position: relative;
-  min-height: 586px;
+  min-height: 616px;
   margin: 0 0;
 }
 .background {
