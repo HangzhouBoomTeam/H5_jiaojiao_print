@@ -4,7 +4,7 @@
             <div>
               <i></i><span>照片上传成功</span>
             </div>
-            <p>8张照片在排队，预计需要5分钟</p>
+            <p>{{left}}张照片在排队，预计需要{{min}}分钟</p>
         </div>
         <div class="content">
            <img class="right-img" src="./assets/right.png" alt="" width="30px" height="20px">
@@ -20,14 +20,14 @@
                 <p class="one">一</p>
                 <p class="address"><i class="address-img"></i>{{poss}}</p>
                 <p class="wedding">{{quote}}</p>
-                 <div src=""  class="qr_bottom" id="asdf"></div>
+                 <div src=""  class="qr_bottom" id="asdf" style="bottom:5px;right: 5px;"></div>
                 </div>
                 <div class="qr_bottom" style=" background: white;width: 100%;height: 60px;pointer-events: none;border: 3px solid;border-top: none;"></div>
 
            </div>
                
 
-                <div class="look-more" ><span @click="seeMore">查看更多的奇遇</span></div>
+                <div class="look-more"><span @click="seeMore">查看更多的奇遇</span></div>
 
                 <div class="btns" @click="playAgain">
                     <i class="again-img"></i>再玩一次
@@ -47,10 +47,11 @@
             </div>
         </div>
         <div class="footer">
-            <div class="go-on"><span>继续免费打印</span></div>
+            <div class="go-on"><span> <a :href="url" style="color: #fff;text-decoration: none"
+            >继续免费打印</a></span></div>
             <div class="footer-tip">
                 <p>如打印出现问题可随时联系本机器管理员</p>
-                 <p>电话：<span >0571-86009029</span></p>
+                 <p>电话：<span >{{tel}}</span></p>
             </div>
             
         </div>
@@ -64,6 +65,7 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 function getPic(){
    console.log(window.innerWidth);
           var w = window.innerWidth*0.8;
@@ -86,11 +88,65 @@ function getPic(){
                document.getElementById('show_img').src = dataUrl
           })
 }
+var touchFunc = function(obj,type,func) {
+    //滑动范围在5x5内则做点击处理，s是开始，e是结束
+    var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
+    var sTime = 0, eTime = 0;
+    type = type.toLowerCase();
+  
+    obj.addEventListener("touchstart",function(){
+        sTime = new Date().getTime();
+        init.sx = event.targetTouches[0].pageX;
+        init.sy = event.targetTouches[0].pageY;
+        init.ex = init.sx;
+        init.ey = init.sy;
+        if(type.indexOf("start") != -1) func();
+    }, false);
+  
+    obj.addEventListener("touchmove",function() {
+        event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动
+        init.ex = event.targetTouches[0].pageX;
+        init.ey = event.targetTouches[0].pageY;
+        if(type.indexOf("move")!=-1) func();
+    }, false);
+  
+    obj.addEventListener("touchend",function() {
+        var changeX = init.sx - init.ex;
+        var changeY = init.sy - init.ey;
+        if(Math.abs(changeX)>Math.abs(changeY)&&Math.abs(changeY)>init.y) {
+            //左右事件
+            if(changeX > 0) {
+                if(type.indexOf("left")!=-1) func();
+            }else{
+                if(type.indexOf("right")!=-1) func();
+            }
+        }
+        else if(Math.abs(changeY)>Math.abs(changeX)&&Math.abs(changeX)>init.x){
+            //上下事件
+            if(changeY > 0) {
+                if(type.indexOf("top")!=-1) func();
+            }else{
+                if(type.indexOf("down")!=-1) func();
+            }
+        }
+        else if(Math.abs(changeX)<init.x && Math.abs(changeY)<init.y){
+            eTime = new Date().getTime();
+            //点击事件，此处根据时间差细分下
+            if((eTime - sTime) > 300) {
+                if(type.indexOf("long")!=-1) func(); //长按
+            }
+            else {
+                if(type.indexOf("click")!=-1) func(); //当点击处理
+            }
+        }
+        if(type.indexOf("end")!=-1) func();
+    }, false);
+};
 export default {
     data () {
       return {
         name:'',
-        isShowResult:false,poss:'',quote:'',today:'',_ig:''
+        isShowResult:false,poss:'',quote:'',today:'',_ig:'',url:'',left:'',min:'',tel:'',gps:''
       }
     },
      mounted(){
@@ -101,10 +157,14 @@ export default {
      },
      methods: {
        getData (){
+        // 1: left; 2: min; 3: url; 4: tel
          console.log(this.$route.params);
           let name = this.$route.params.name;
           this._ig = this.$route.query._ig || 'unknown';
-
+            this.url = this.$route.query.url || 'http://www.chat.in66.com';
+            this.left = this.$route.query.left || '2';
+            this.min = this.$route.query.right || '2';
+            this.tel = this.$route.query.tel || '0571-86009029';
           if(name) {
               this.name = name;
           } else  {
@@ -119,10 +179,9 @@ export default {
        saveImg(){
 
        },
-       seeMore() {
-           http.get('guessResult*lookMore');
-            window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?_ig=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
-
+       seeMore(){
+        http.get('guessResult*lookMore');
+        window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?channel=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
        },
        startGuess(){
            if(this.name.length == 0){
@@ -133,8 +192,9 @@ export default {
          var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
       this.poss = w.name
       this.quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
+        this.gps = w.gps.join()
       setTimeout(()=>{
- new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:50,height:50})
+ new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:160,height:160})
       },300)
     
          setTimeout(()=>{
@@ -147,6 +207,10 @@ export default {
 </script>
 
 <style lang="scss">
+#asdf img{
+  width: 50px;
+  height: 50px;
+}
 .qr_bottom{
     width: 50px;
     position: absolute;

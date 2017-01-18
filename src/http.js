@@ -4,7 +4,7 @@
 import Vue from 'vue';
 
 const get =  function (param,successCallback,failCallbak) { 
-    var url = "http://stats1.jiuyan.info/itugo_deleven.html?action=promo*forecast2017*2017Guess*";
+    var url = "http://stats1.jiuyan.info/itugo_deleven.html?jsonpCallback=dasda&action=promo*forecast2017*2017Guess*";
     // Vue.axios.setHeader("Access-Control-Allow-Origin", "*");
     console.log(param);
     Vue.axios.get(url+param)
