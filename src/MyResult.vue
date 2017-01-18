@@ -20,7 +20,7 @@
                 <p class="one">一</p>
                 <p class="address"><i class="address-img"></i>{{poss}}</p>
                 <p class="wedding">{{quote}}</p>
-                 <div src=""  class="qr_bottom" id="asdf"></div>
+                 <div src=""  class="qr_bottom" id="asdf" ></div>
                 </div>
                 <div class="qr_bottom" style=" background: white;
     width: 100%;
