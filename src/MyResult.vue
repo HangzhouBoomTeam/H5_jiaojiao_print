@@ -20,7 +20,7 @@
                 <p class="one">一</p>
                 <p class="address"><i class="address-img"></i>{{poss}}</p>
                 <p class="wedding">{{quote}}</p>
-                <img src="./assets/qr.png" class="qr_bottom">
+                 <div src=""  class="qr_bottom" id="asdf"></div>
                 </div>
                 <div class="qr_bottom" style=" background: white;width: 100%;height: 60px;pointer-events: none;border: 3px solid;border-top: none;"></div>
 
@@ -89,7 +89,7 @@ export default {
     data () {
       return {
         name:'',
-        isShowResult:false,poss:'',quote:'',today:''
+        isShowResult:false,poss:'',quote:'',today:'',_ig:''
       }
     },
      mounted(){
@@ -102,6 +102,8 @@ export default {
        getData (){
          console.log(this.$route.params);
           let name = this.$route.params.name;
+          this._ig = this.$route.query._ig || 'unknown';
+
           if(name) {
               this.name = name;
           } else  {
@@ -120,7 +122,10 @@ export default {
          var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
       this.poss = w.name
       this.quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
-     
+      setTimeout(()=>{
+ new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:50,height:50})
+      },300)
+    
          setTimeout(()=>{
           getPic()
          },1000)
