@@ -27,7 +27,7 @@
            </div>
                
 
-                <div class="look-more"><span>查看更多的奇遇</span></div>
+                <div class="look-more" ><span @click="seeMore">查看更多的奇遇</span></div>
 
                 <div class="btns" @click="playAgain">
                     <i class="again-img"></i>再玩一次
@@ -57,6 +57,7 @@
     </div>
 </template>
 <script>
+import http from "./http.js";
 import wenan from "./wenan";
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -111,13 +112,23 @@ export default {
           }
        },
        playAgain(){
+           http.get('guessResult*playAgain');
           this.isShowResult = false;
           this.name = "";
        },
        saveImg(){
 
        },
+       seeMore() {
+           http.get('guessResult*lookMore');
+            window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?_ig=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
+
+       },
        startGuess(){
+           if(this.name.length == 0){
+               return;
+           }
+         http.get('guessInput*startGuess');
          this.isShowResult = true;
          var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
       this.poss = w.name
