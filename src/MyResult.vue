@@ -176,10 +176,11 @@ export default {
          console.log(this.$route.params);
           let name = this.$route.params.name;
           this._ig = this.$route.query._ig || 'unknown';
-            this.url = this.$route.query.url || 'http://www.chat.in66.com';
-            this.left = this.$route.query.left || '2';
-            this.min = this.$route.query.right || '2';
-            this.tel = this.$route.query.tel || '0571-86009029';
+
+this.url = this.$route.query.url || 'http://chat.in66.com';
+this.left = this.$route.query.left || '2';
+this.min = this.$route.query.right || '2';
+this.tel = this.$route.query.tel || '0571-86009029';
           if(name) {
               this.name = name;
           } else  {
