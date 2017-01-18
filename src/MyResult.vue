@@ -22,13 +22,7 @@
                 <p class="wedding">{{quote}}</p>
                  <div src=""  class="qr_bottom" id="asdf" ></div>
                 </div>
-                <div class="qr_bottom" style=" background: white;
-    width: 100%;
-    height: 60px;
-    pointer-events: none;
-    border: 3px solid;
-    border-top: none;
-}"></div>
+                <div class="qr_bottom" style=" background: white;width: 100%;height: 60px;pointer-events: none;border: 3px solid;border-top: none;"></div>
 
            </div>
                
