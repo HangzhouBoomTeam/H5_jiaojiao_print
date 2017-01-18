@@ -68,6 +68,8 @@ function getRandomIntInclusive(min, max) {
 
 function getPic(){
    console.log(window.innerWidth);
+   listenLongPress();
+   var self = this;
           var w = window.innerWidth*0.8;
           var h = window.innerHeight*0.5;
           console.log(w,h);
@@ -86,6 +88,9 @@ function getPic(){
                var dataUrl = canvas.toDataURL();
                // // document.getElementById('template').remove()
                document.getElementById('show_img').src = dataUrl
+        //        self.touchFunc(document.getElementById('show_img'),'long',function () {  
+        //      console.log('检测到长按保存时间');
+        //  });
           })
 }
 var touchFunc = function(obj,type,func) {
@@ -142,6 +147,14 @@ var touchFunc = function(obj,type,func) {
         if(type.indexOf("end")!=-1) func();
     }, false);
 };
+
+var listenLongPress =  function () { 
+    var show_img = document.getElementById('show_img');
+    console.log(show_img);
+        touchFunc(document.getElementById('show_img'),'long',function () {  
+             http.get('guessResult*saveImage');
+         });
+ }
 export default {
     data () {
       return {
@@ -150,10 +163,12 @@ export default {
       }
     },
      mounted(){
+         
+        
           this.getData();
-           var now =new Date()
-            var time = now.getFullYear() +'年'+ now.getDay()+'日'
-            this.today=time
+          var now =new Date()
+          var time = now.getFullYear() +'年'+ now.getDay()+'日'
+          this.today=time
      },
      methods: {
        getData (){
@@ -177,7 +192,7 @@ export default {
           this.name = "";
        },
        saveImg(){
-
+           
        },
        seeMore(){
         http.get('guessResult*lookMore');
@@ -187,6 +202,7 @@ export default {
            if(this.name.length == 0){
                return;
            }
+           
          http.get('guessInput*startGuess');
          this.isShowResult = true;
          var w = wenan[getRandomIntInclusive(0,wenan.length-1)]
