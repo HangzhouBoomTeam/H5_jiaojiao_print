@@ -23,7 +23,7 @@
                 <p class="one">一</p>
                 <p class="address"><i class="address-img"></i>{{poss}}</p>
                 <p class="wedding">{{quote}}</p>
-                 <div src=""  class="qr_bottom" id="asdf" style="bottom:5px;right: 5px;"></div>
+                 <div src=""  class="qr_bottom" id="asdf" style="bottom:5px;right: 5px;width: 40px;height:40px"></div>
                 </div>
                 <div class="white-content"  style="position: absolute;left:0;top:0; pointer-events: none;">
 
@@ -210,7 +210,7 @@ this.tel = this.$route.query.tel || '0571-86009029';
         window.location.href=`https://chat.in66.com/pages/peel_hot/list.html?channel=forecast_jump&location=${this.poss}&location_gps=${this.gps}`
        },
        startGuess(){
-           if(this.name.length == 0){
+           if(this.name.length == 0 || this.name.length>5){
                return;
            }
            
@@ -235,8 +235,8 @@ this.tel = this.$route.query.tel || '0571-86009029';
 
 <style lang="scss">
 #asdf img{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .qr_bottom{
     width: 50px;
