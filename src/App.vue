@@ -35,6 +35,22 @@ export default {
  height: 100%;
   width: 100%;
 }
+
+@media screen and (max-width: 330px) {
+    html {
+      font-size: 12px;
+    }
+}
+@media (min-width: 331px) and (max-width: 380px) {
+    html {
+      font-size: 16px;
+    }
+}
+@media (min-width: 381px) and (max-width: 500px) {
+    html {
+      font-size: 20px
+    }
+}
 *{
   box-sizing: border-box;
 }

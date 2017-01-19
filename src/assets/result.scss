@@ -44,8 +44,8 @@
         padding: 15px 10px 0 10px;
         position: relative;
         .result-warp {
-            width: 100%;
-            height: 80%;
+            width: calc(90vw - 30px);
+            height: calc(90vw - 30px);
         }
         .right-img {
             position: absolute;
@@ -89,6 +89,7 @@
                 margin: -5% 0 0.3rem 5%;
                 color: #4471E6;
                 font-size: 32px;
+                height: 2rem;
             }
 
             .address-img {
@@ -104,7 +105,7 @@
                 color: #4471E6;
                 font-weight: bold;
                 color: #000;
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             .wedding {
                 margin: 0% 0 2% 5%;
@@ -117,7 +118,7 @@
         .look-more {
             margin: 0 auto;
             text-align: center;
-            width: 230px;
+            width: calc(70vw - 30px);
             position: relative;
             bottom: 23px;
             span {

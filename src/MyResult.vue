@@ -13,7 +13,10 @@
            <div style="height:100%">
                 <img src="" id="show_img" style="position: absolute;width: 100%;left:0;top:0;height:100%;">
 
-             <div class="white-content" id="wwww" style="position: relative; pointer-events: none;">
+             <div class="white-content" id="wwww" style="position: relative; pointer-events: none; background-color: #F7FD18;
+  background-image: url(./src/assets/ghost.png);
+  background-size: 100% auto;
+  background-position: bottom; ">
 
                 <p class="date"><span >{{today}}</span></p>
                 <p class="later">{{name}}<span class="will">将会在</span></p>
@@ -21,6 +24,14 @@
                 <p class="address"><i class="address-img"></i>{{poss}}</p>
                 <p class="wedding">{{quote}}</p>
                  <div src=""  class="qr_bottom" id="asdf" style="bottom:5px;right: 5px;"></div>
+                </div>
+                <div class="white-content"  style="position: absolute;left:0;top:0; pointer-events: none;">
+
+                <p class="date"><span >{{today}}</span></p>
+                <p class="later">{{name}}<span class="will">将会在</span></p>
+                <p class="one">一</p>
+                <p class="address"><i class="address-img"></i>{{poss}}</p>
+                <p class="wedding">{{quote}}</p>
                 </div>
                 <div class="qr_bottom" style=" background: white;width: 100%;height: 60px;pointer-events: none;border: 3px solid;border-top: none;"></div>
 
@@ -70,18 +81,17 @@ function getPic(){
    console.log(window.innerWidth);
    listenLongPress();
    var self = this;
-          var w = window.innerWidth*0.8;
-          var h = window.innerHeight*0.5;
-          console.log(w,h);
-          if (w>h) {h=w*1.3}
+          var w = window.innerWidth*0.9 -30;
+          var h =w          
+          var off = document.getElementById('wwww').getBoundingClientRect()
           var canvas = document.createElement('canvas');
           canvas.width = 5*w;
           canvas.height = 5*h;
           canvas.style.width = w + 'px';
           canvas.style.height = h + 'px';
           var context = canvas.getContext('2d');
-          context.scale(4,4);
-          context.translate(0,-h*0.1)
+          context.scale(5,5);
+          context.translate(-off.left,-off.top)
           console.log(document.getElementById('wwww'));
           html2canvas(document.getElementById('wwww'),{canvas:canvas}).then(function(canvas){
             console.log(canvas);
@@ -167,7 +177,7 @@ export default {
         
           this.getData();
           var now =new Date()
-          var time = now.getFullYear() +'年'+ now.getDay()+'日'
+          var time = now.getFullYear() +'年'+ getRandomIntInclusive(1,12)+'月'
           this.today=time
      },
      methods: {
