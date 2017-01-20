@@ -52,7 +52,7 @@
                 <div class="guess-img"><i class="guess-img"> </i></div>
                 <div class="meet-img"> <i class="meet-img"></i></div>
                 <div class="name-input" >
-                    <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name">
+                    <input type="text" name="name" maxlength="5" value="" placeholder="请输入姓名" v-model="name">
                 </div>
                 <div class="start-guess"><span @click="startGuess">开始预测</span></div>
             </div>
@@ -256,6 +256,22 @@ this.tel = this.$route.query.tel || '0571-86009029';
 }
 body{
   height: 100%;
+}
+
+@media screen and (max-width: 330px) {
+    html {
+      font-size: 12px;
+    }
+}
+@media (min-width: 331px) and (max-width: 380px) {
+    html {
+      font-size: 16px;
+    }
+}
+@media (min-width: 381px) and (max-width: 500px) {
+    html {
+      font-size: 20px
+    }
 }
   @import 'assets/result.scss';
 
