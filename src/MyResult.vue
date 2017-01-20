@@ -38,7 +38,7 @@
            </div>
                
 
-                <div class="look-more"><span @click="seeMore">查看更多的奇遇</span></div>
+                <div class="look-more"><span @click="seeMore">查看"{{poss}}"更多的奇遇</span></div>
 
                 <div class="btns" @click="playAgain">
                     <i class="again-img"></i>再玩一次
