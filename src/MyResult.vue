@@ -13,8 +13,7 @@
            <div style="height:100%">
                 <img src="" id="show_img" style="position: absolute;width: 100%;left:0;top:0;height:100%;">
 
-             <div class="white-content" id="wwww" style="position: relative; pointer-events: none; background-color: #F7FD18;
-  background-image: url(./src/assets/ghost.png);
+             <div class="white-content bigimg" id="wwww" style="position: relative; pointer-events: none; background-color: #F7FD18;
   background-size: 100% auto;
   background-position: bottom; ">
 
@@ -234,6 +233,9 @@ this.tel = this.$route.query.tel || '0571-86009029';
 </script>
 
 <style lang="scss">
+.bigimg{
+  background-image: url(./assets/ghost.png);
+}
 #asdf img{
   width: 40px;
   height: 40px;
@@ -257,6 +259,277 @@ this.tel = this.$route.query.tel || '0571-86009029';
 body{
   height: 100%;
 }
-  @import 'assets/result.scss';
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header {
+        text-align: center;
+        margin-top: 20px;
+        color: #2e2e2e;
+        font-size: 20px;
+        
+        span {
+            display: inline-block;
+            line-height: 30px;
+        }
+        
+
+        p {
+            margin:3px 0;
+            font-size: 14px;
+        }
+        i {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+            background-image: url(./assets/success.png);
+            // background-color: #CEB075;
+            background-size: 100% 100%;
+            border-radius: 26px;
+            // margin-top: -2px;
+            margin-bottom: 8px;
+        }
+    }
+
+    .content {
+        margin: 0 auto;
+        width: 90%;
+        height: 60%;
+        background-color: #F7FC18;
+        border: solid 3px #000;
+        padding: 15px 10px 0 10px;
+        position: relative;
+        .result-warp {
+            width: calc(90vw - 30px);
+            height: calc(90vw - 30px);
+        }
+        .right-img {
+            position: absolute;
+            top: 10%;
+            right: -6%;
+        }
+        .left-img {
+            position: absolute;
+            top: -8%;
+            left: 2%;
+        }
+        .white-content {
+            width: 100%;
+            height: 100%;
+            border: solid 3px #000;
+            background-color: #fff;
+
+            .date {
+                margin: 5% 0 6% 6%;
+                /*width: 78px;*/
+                
+                }
+            .date span {
+                padding: 5px 15px;
+                border: solid 1px #000;
+                border-radius: 16px;
+                font-size: 12px;
+                background-color: #F7FC18;
+                font-weight: bold;
+            }
+            .later {
+                margin: 5% 0 2% 5%;
+                font-weight: bold;
+                font-size: 32px;
+            }
+            .later span {
+                margin-left: 3px;
+                font-size: 14px;
+            }
+            .one {
+                margin: -5% 0 0.3rem 5%;
+                color: #4471E6;
+                font-size: 32px;
+                height: 2rem;
+            }
+
+            .address-img {
+                width: 20px;
+                height: 27px;
+                background-image: url(./assets/address.png);
+                background-size: 100% 100%;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            .address {
+                margin: 0% 0 4% 5%;
+                color: #4471E6;
+                font-weight: bold;
+                color: #000;
+                text-align: center;
+                font-size: 1.5rem;
+            }
+            .wedding {
+                margin: 0% 0 2% 5%;
+                color: #4471E6;
+                font-weight: bold;
+                text-align: center;
+                font-size: 1.3rem;
+            }
+        }
+
+        .look-more {
+            margin: 0 auto;
+            text-align: center;
+            width: calc(70vw - 30px);
+            position: relative;
+            bottom: 23px;
+            span {
+                color: #fff;
+                background-color: #4471E6;
+                border: solid 2px #000;
+                padding: 10px 14px ;
+                border-radius: 25px;
+                font-weight: bold;
+                display: block;
+            }
+        }
+
+        .btns {
+            float: left;
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            font-weight: bold;
+
+            i {
+                background-size: 100% 100%;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                margin-bottom: 3px;
+            }
+            .again-img {
+                 width: 15px;
+                 height: 15px;
+                 background-image: url(./assets/refresh.png);
+            }
+            .down-img {
+                 width: 15px;
+                 height: 15px;
+                 background-image: url(./assets/download.png);
+            }
+        }
+
+        .guess {
+            .guess-img {
+                background-image: url(./assets/2017.png) ;
+                background-repeat: no-repeat;
+                background-position-x : center;
+                background-size: 70% 100%;
+                width: 100%;
+                height: 120%;
+                display: inline-block;
+                margin-bottom: -20px;
+            }
+            .meet-img {
+                background-image: url(./assets/qiyu.png) ;
+                background-repeat: no-repeat;
+                background-position-x : center;
+                background-size: 90% 100%;
+                width: 100%;
+                height: 120%;
+                display: inline-block;
+            }
+            .name-input {
+                height: 50px;;
+                margin-top: 10%;
+                text-align: center;
+                .name-input input  {
+                    height: 100%;
+                    border: solid 3px #000;
+                    border-radius: 10px;
+                    width: 75%;
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+                
+            .start-guess {
+                margin: 0 auto;
+                text-align: center;
+                width: 75%;
+                margin-top: 10%;
+                span {
+                    color: #000;
+                    background-color: #F7FC18;
+                    border: solid 2px #000;
+                    padding: 10px 14px ;
+                    border-radius: 25px;
+                    font-weight: bold;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px 0 0 0 ;
+        border: dashed 1px #DBDBDB;
+        .go-on {
+            margin-bottom: 20px;
+             span {
+            width: 50%;
+            padding: 15px 0;
+            display: inline-block;
+            background-color: #E25447;
+            color: #fff;
+            line-height: 100%;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        }
+       
+        .footer-tip {
+            margin-bottom: 20px;
+             p{
+                margin:0 0 ;
+                color: #A8A5A5;
+                font-size: 14px;
+            }
+            span {
+                color: #B8DDF8;
+                text-decoration: underline;
+            }
+        }
+       
+
+    }
+}
+
+.demoSpan1{
+    width:26px;
+}
+
+.demoSpan1:before{content:''; height:16px; width:16px; border:5px solid #333; display:block; position:absolute; top:2px; left:0px; z-index:1; line-height:26px; border-radius:40px;-webkit-border-radius:40px;-moz-border-radius:40px; color:#fff; text-align:center;}
+
+.demoSpan1:after{content:''; height:0px; width:0px; display:block; position:absolute; bottom:2px; left:3px; border:10px transparent solid; border-top-color:#333; border-width:15px 10px 0px 10px; }
+
+.icon {
+    i {
+        display: inline-block;
+        font-size: 1.6rem;
+    }
+    .span-img{height:40px; width:30px; display:inline-block;} 
+
+    // margin-bottom: 0px;
+    position: relative;
+    height: 40px;
+    width: 340px;
+    padding-right: 10px;
+}
+
+
 
 </style>
