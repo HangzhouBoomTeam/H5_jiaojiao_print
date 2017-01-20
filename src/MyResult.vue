@@ -20,9 +20,13 @@
                 <p class="date"><span >{{today}}</span></p>
                 <p class="later">{{name}}<span class="will">将会在</span></p>
                 <p class="one">一</p>
-                <p class="address"><i class="address-img"></i>{{poss}}</p>
+                <p class="address"><i class="address-img" id = 'address_id'></i>{{poss}}</p>
                 <p class="wedding">{{quote}}</p>
                  <div src=""  class="qr_bottom" id="asdf" style="bottom:5px;right: 5px;width: 40px;height:40px"></div>
+                 <img id="down_id" style="width: 60%;
+    position: absolute;
+    bottom: 5px;
+    left: 7%;">
                 </div>
                 <div class="white-content"  style="position: absolute;left:0;top:0; pointer-events: none;">
 
@@ -223,13 +227,15 @@ this.tel = this.$route.query.tel || '0571-86009029';
       this.quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
         this.gps = w.gps.join()
 
-           // document.getElementById("address_id").style.backgroundImage = "url("+address+")"
-            // document.getElementById("down_id").src = down
 
       setTimeout(()=>{
  new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:160,height:160})
          document.getElementById("wwww").style.backgroundImage = "url("+ghost+")"
- 
+           document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+            document.getElementById("down_id").src = down
+
+
+
       },300)
 
     
@@ -269,6 +275,7 @@ this.tel = this.$route.query.tel || '0571-86009029';
 body{
   height: 100%;
 }
+
 .container {
     height: 100%;
     display: flex;
@@ -309,11 +316,15 @@ body{
     .content {
         margin: 0 auto;
         width: 90%;
-        height: 60%;
+        height: 26rem;
         background-color: #F7FC18;
         border: solid 3px #000;
         padding: 15px 10px 0 10px;
         position: relative;
+        input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
         .result-warp {
             width: calc(90vw - 30px);
             height: calc(90vw - 30px);
@@ -350,7 +361,7 @@ body{
             .later {
                 margin: 5% 0 2% 5%;
                 font-weight: bold;
-                font-size: 32px;
+                fonte: 32px;
             }
             .later span {
                 margin-left: 3px;
@@ -366,7 +377,7 @@ body{
             .address-img {
                 width: 20px;
                 height: 27px;
-                background-image: url(./assets/address.png);
+                background-image: url(./assets/address1.png);
                 background-size: 100% 100%;
                 display: inline-block;
                 margin-right: 5px;
@@ -411,7 +422,6 @@ body{
             width: 50%;
             text-align: center;
             font-weight: bold;
-
             i {
                 background-size: 100% 100%;
                 display: inline-block;
@@ -539,6 +549,8 @@ body{
     width: 340px;
     padding-right: 10px;
 }
+
+
 
 
 
