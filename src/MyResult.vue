@@ -260,7 +260,7 @@ body{
 
 @media screen and (max-width: 330px) {
     html {
-      font-size: 12px;
+      font-size: 14px;
     }
 }
 @media (min-width: 331px) and (max-width: 380px) {
