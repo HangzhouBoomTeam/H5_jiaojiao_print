@@ -229,6 +229,7 @@ this.tel = this.$route.query.tel || '0571-86009029';
 
 
       setTimeout(()=>{
+        document.getElementById('asdf').style.visibility = 'hidden'
  new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:160,height:160})
          document.getElementById("wwww").style.backgroundImage = "url("+ghost+")"
            document.getElementById("address_id").style.backgroundImage = "url("+address+")"
@@ -240,6 +241,7 @@ this.tel = this.$route.query.tel || '0571-86009029';
 
     
          setTimeout(()=>{
+          document.getElementById('asdf').style.visibility = 'visibled'
           getPic()
          },1000)
        }
