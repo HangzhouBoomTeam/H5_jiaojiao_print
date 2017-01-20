@@ -70,6 +70,9 @@
 <script>
 import http from "./http.js";
 import wenan from "./wenan";
+import ghost from "./base64/ghost";
+import down from "./base64/down";
+import address from "./base64/address";
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -172,7 +175,7 @@ export default {
       }
     },
      mounted(){
-         
+        
         
           this.getData();
           var now =new Date()
@@ -219,9 +222,16 @@ this.tel = this.$route.query.tel || '0571-86009029';
       this.poss = w.name
       this.quote = w.quotes[getRandomIntInclusive(0,w.quotes.length-1)]
         this.gps = w.gps.join()
+
+           // document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+            // document.getElementById("down_id").src = down
+
       setTimeout(()=>{
  new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:160,height:160})
+         document.getElementById("wwww").style.backgroundImage = "url("+ghost+")"
+ 
       },300)
+
     
          setTimeout(()=>{
           getPic()
@@ -234,7 +244,7 @@ this.tel = this.$route.query.tel || '0571-86009029';
 
 <style lang="scss">
 .bigimg{
-  background-image: url(./assets/ghost.png);
+  // background-image: url(./assets/ghost.png);
 }
 #asdf img{
   width: 40px;
