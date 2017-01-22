@@ -97,7 +97,7 @@ function getPic(){
           canvas.style.height = h + 'px';
           var context = canvas.getContext('2d');
           context.scale(5,5);
-          context.translate(-off.left,-off.top)
+          context.translate(-off.left,-off.top-document.body.scrollTop)
           console.log(document.getElementById('wwww'));
           html2canvas(document.getElementById('wwww'),{canvas:canvas}).then(function(canvas){
             console.log(canvas);
