@@ -241,7 +241,7 @@ this.tel = this.$route.query.tel || '0571-86009029';
 
     
          setTimeout(()=>{
-          document.getElementById('asdf').style.visibility = 'visibled'
+          document.getElementById('asdf').style.visibility = 'visible'
           getPic()
          },1000)
        }
