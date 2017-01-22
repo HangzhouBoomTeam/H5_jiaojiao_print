@@ -36,7 +36,9 @@
                 <p class="later">{{name}}<span class="will">将会在</span></p>
                 <p class="one">一</p>
                 <p class="address"><i class="address-img"></i>{{poss}}</p>
-                <p class="wedding">{{quote}}</p>
+                <!--<p class="wedding">{{quote}}</p>-->
+                                <p class="wedding">高唱：五星红旗迎风飘扬，胜利歌声多么响亮！</p>
+
                 </div>
                 <div class="qr_bottom" style=" background: white;width: 100%;height: 60px;pointer-events: none;border: 3px solid;border-top: none;"></div>
 
@@ -57,7 +59,7 @@
                 <div class="guess-img"><i class="guess-img"> </i></div>
                 <div class="meet-img"> <i class="meet-img"></i></div>
                 <div class="name-input" >
-                    <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name">
+                    <input type="text" name="name" value="" placeholder="请输入姓名" v-model="name" maxlength="5">
                 </div>
                 <div class="start-guess"><span @click="startGuess">开始预测</span></div>
             </div>
@@ -90,7 +92,7 @@ function getPic(){
    listenLongPress();
    var self = this;
           var w = window.innerWidth*0.9 -30;
-          var h =w          
+          var h =window.innerWidth*0.8 -30;          
           var off = document.getElementById('wwww').getBoundingClientRect()
           var canvas = document.createElement('canvas');
           canvas.width = 5*w;
@@ -232,7 +234,12 @@ this.tel = this.$route.query.tel || '0571-86009029';
 
       setTimeout(()=>{
         document.getElementById('asdf').style.visibility = 'hidden'
- new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:160,height:160})
+        
+        var qrUrl = 'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig;
+        http.shortUrlGet(qrUrl,function (data) {  
+            new QRCode(document.getElementById('asdf'),{text:data[0].url_short,width:160,height:160})        
+    });
+
          document.getElementById("wwww").style.backgroundImage = "url("+ghost+")"
         //    document.getElementById("address_id").style.backgroundImage = "url("+address+")"
         document.getElementById("address_id").style.width = "20px";
@@ -344,7 +351,7 @@ body{
     .content {
         margin: 0 auto;
         width: 90%;
-        height: 26rem;
+        height: 100vw;
         background-color: #F7FC18;
         border: solid 3px #000;
         padding: 15px 10px 0 10px;
@@ -355,7 +362,8 @@ input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
         .result-warp {
             width: calc(90vw - 30px);
-            height: calc(90vw - 30px);
+            height: calc(80vw - 30px);
+            background-color: initial;
         }
         .right-img {
             position: absolute;
@@ -423,7 +431,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
                 color: #4471E6;
                 font-weight: bold;
                 /*text-align: center;*/
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -437,7 +445,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
                 color: #fff;
                 background-color: #4471E6;
                 border: solid 2px #000;
-                padding: 10px 14px ;
+                padding: 10px 8px ;
                 border-radius: 25px;
                 font-weight: bold;
                 display: inline-block;
