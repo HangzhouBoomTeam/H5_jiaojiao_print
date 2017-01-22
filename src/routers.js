@@ -1,6 +1,5 @@
 import VueRouter from 'vue-router'
 import MyResult from "./MyResult.vue";
-import App from "./App.vue";
 
 const router = new VueRouter({
     mode: 'hash',
@@ -14,7 +13,7 @@ const router = new VueRouter({
         component: MyResult
     }]
 })
- var isFirstIn = true;
+var isFirstIn = true;
 // router.beforeEach((to, from, next) => {
 //   // ...
 // //   console.log('router before');

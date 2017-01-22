@@ -258,6 +258,31 @@ this.tel = this.$route.query.tel || '0571-86009029';
 .bigimg{
   // background-image: url(./assets/ghost.png);
 }
+@media screen and (max-width: 330px) {
+    html {
+      font-size: 12px;
+    }
+}
+@media (min-width: 331px) and (max-width: 380px) {
+    html {
+      font-size: 16px;
+    }
+}
+@media (min-width: 381px) and (max-width: 500px) {
+    html {
+      font-size: 20px
+    }
+}
+*{
+  box-sizing: border-box;
+}
+body{
+  height: 90% !important;
+  position: relative;
+  // height: 100px !important;
+  min-height: 600px !important;
+  margin: 0 0;
+}
 #asdf img{
   width: 40px;
   height: 40px;
@@ -277,9 +302,6 @@ this.tel = this.$route.query.tel || '0571-86009029';
  height: 100%;
   width: 100%;
   font-weight: bold;
-}
-body{
-  height: 100%;
 }
 
 .container {

@@ -54,12 +54,7 @@ export default {
 *{
   box-sizing: border-box;
 }
-body{
-  height: 100%;
-  position: relative;
-  min-height: 616px;
-  margin: 0 0;
-}
+
 .background {
   height: 100%;
   width: 100%;
