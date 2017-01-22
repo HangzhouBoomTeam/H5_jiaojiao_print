@@ -20,7 +20,9 @@
                 <p class="date"><span >{{today}}</span></p>
                 <p class="later">{{name}}<span class="will">将会在</span></p>
                 <p class="one">一</p>
-                <p class="address"><i class="address-img" id = 'address_id'></i>{{poss}}</p>
+                <!--<p class="address"><i class="address-img" id = 'address_id'></i>{{poss}}</p>-->
+                <p class="address" ><img src="./assets/address1.png" class="address-img" id="address_id" alt=""></i>{{poss}}</p>
+
                 <p class="wedding">{{quote}}</p>
                  <div src=""  class="qr_bottom" id="asdf" style="bottom:5px;right: 5px;width: 40px;height:40px"></div>
                  <img id="down_id" style="width: 60%;
@@ -232,7 +234,9 @@ this.tel = this.$route.query.tel || '0571-86009029';
         document.getElementById('asdf').style.visibility = 'hidden'
  new QRCode(document.getElementById('asdf'),{text:'https://chat.in66.com/pages/promo/forecast.html?_ig=promo_forecast&channel='+this._ig,width:160,height:160})
          document.getElementById("wwww").style.backgroundImage = "url("+ghost+")"
-           document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+        //    document.getElementById("address_id").style.backgroundImage = "url("+address+")"
+        document.getElementById("address_id").style.width = "20px";
+                        document.getElementById("address_id").style.height = "27px";
             document.getElementById("down_id").src = down
 
 
@@ -389,14 +393,14 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
                 color: #4471E6;
                 font-weight: bold;
                 color: #000;
-                text-align: center;
+                /*text-align: center;*/
                 font-size: 1.5rem;
             }
             .wedding {
                 margin: 0% 0 2% 5%;
                 color: #4471E6;
                 font-weight: bold;
-                text-align: center;
+                /*text-align: center;*/
                 font-size: 1.3rem;
             }
         }
@@ -404,7 +408,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
         .look-more {
             margin: 0 auto;
             text-align: center;
-            width: calc(70vw - 30px);
+            /*width: calc(70vw - 30px);*/
             position: relative;
             bottom: 23px;
             span {
@@ -414,7 +418,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
                 padding: 10px 14px ;
                 border-radius: 25px;
                 font-weight: bold;
-                display: block;
+                display: inline-block;
             }
         }
 
